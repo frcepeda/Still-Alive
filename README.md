@@ -5,13 +5,6 @@ So I was bored and made this.
 
 Of course you need to have the mp3 or whatever yourself.
 
-Requirements
-------------
-
-* Ruby
-* tput (standard on Linux and Mac OS X. You need
-Cygwin for that on Windows)
-
 Usage
 -----
 

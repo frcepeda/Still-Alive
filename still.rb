@@ -2,8 +2,24 @@
 
 trap('SIGINT') {puts; exit 1}
 
-COLUMNS = `tput cols`.to_i
-LINES = `tput lines`.to_i
+$columns = `tput cols`.to_i
+$lines = `tput lines`.to_i
+
+if ($columns.nil? or $lines.nil?)
+    $columns = ENV['COLUMNS'].to_i
+    $lines = ENV['LINES'].to_i
+end
+
+if ($columns.nil? or $lines.nil?)
+    $columns = ENV['COLUMNS'].to_i
+    $lines = ENV['LINES'].to_i
+end
+
+if ($columns.nil? or $lines.nil?)
+    $columns = 80
+    $lines = 25
+end
+
 BEATSIZE = 0.5
 x = 2
 
@@ -24,7 +40,7 @@ def writeLine(line, beats)
     rescue
         stars = 0
     end
-    ((COLUMNS - (line.size - stars))/2).times { printf ' ' }
+    (($columns - (line.size - stars))/2).times { printf ' ' }
     writeChar(line, beats, 0)
 end
 
@@ -45,7 +61,7 @@ def drawApertureLogo
     for char in $logo.split(//)
         if char == '*'
             puts
-            ((COLUMNS - 42)/2).times { printf ' ' }
+            (($columns - 42)/2).times { printf ' ' }
         else
             printf char
         end
@@ -59,7 +75,7 @@ def drawCake
     for char in $cake.split(//)
         if char == '*'
             puts
-            ((COLUMNS - 40)/2).times { printf ' ' }
+            (($columns - 40)/2).times { printf ' ' }
             else
             printf char
         end
@@ -77,7 +93,7 @@ sleep 1.beats
 printf "1.."
 sleep 1.beats
 
-(LINES - 1).times { puts }
+($lines - 1).times { puts }
 
 writeLine "This was a triumph", 2.5
 sleep 5.beats
