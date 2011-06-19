@@ -1,23 +1,26 @@
 #! /usr/bin/env ruby
 
-trap('SIGINT') {puts; exit 1}
+trap('SIGINT') { puts; exit 1 }
+trap('SIGWINCH') { getScreenSize }
 
-$columns = `tput cols`.to_i
-$lines = `tput lines`.to_i
+def getScreenSize
+    $columns = `tput cols`.to_i
+    $lines = `tput lines`.to_i
 
-if ($columns.nil? or $lines.nil?)
-    $columns = ENV['COLUMNS'].to_i
-    $lines = ENV['LINES'].to_i
-end
+    if ($columns.nil? or $lines.nil?)
+        $columns = ENV['COLUMNS'].to_i
+        $lines = ENV['LINES'].to_i
+    end
 
-if ($columns.nil? or $lines.nil?)
-    $columns = ENV['COLUMNS'].to_i
-    $lines = ENV['LINES'].to_i
-end
+    if ($columns.nil? or $lines.nil?)
+        $columns = ENV['COLUMNS'].to_i
+        $lines = ENV['LINES'].to_i
+    end
 
-if ($columns.nil? or $lines.nil?)
-    $columns = 80
-    $lines = 25
+    if ($columns.nil? or $lines.nil?)
+        $columns = 80
+        $lines = 25
+    end
 end
 
 BEATSIZE = 0.5
@@ -84,7 +87,7 @@ def drawCake
     return 10
 end
 
-
+getScreenSize
 
 printf "3.."
 sleep 1.beats
