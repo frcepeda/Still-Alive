@@ -8,7 +8,7 @@ Of course you need to have the mp3 or whatever yourself.
 Usage
 -----
 
-Type `./still.rb`, then start the song when the countdown hits 0. Easy peasy.
+Cd to this directory, type `./stillalive.rb`, then start the song when the countdown hits 0. Easy peasy.
 
 Copyright
 ---------
