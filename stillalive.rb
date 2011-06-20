@@ -163,7 +163,7 @@ writeLine "Maybe you'll find someone else to help you.", 9
 sleep 5.beats
 writeLine "Maybe Black Mesa*.*.*.", 4
 sleep 3.5.beats
-writeLine "THAT WAS A JOKE**. HA HA**. FAT CHANCE.", 4.5
+writeLine "THAT WAS A JOKE.** HA HA.** FAT CHANCE.", 4.5
 sleep 3.5.beats
 writeLine "Anyway, this cake is great.", 6
 sleep 0.5.beats
@@ -196,4 +196,5 @@ writeLine "Still alive", 2.5
 sleep 1.5.beats
 writeLine "STILL ALIVE", 2.5
 sleep 3.beats
+puts ""
 puts ""
